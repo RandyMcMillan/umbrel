@@ -75,6 +75,8 @@ jobs:
               
     - name: Build Umbrel OS
       run: |
+        pushd $GITHUB_WORKSPACE && git submodule update --init && popd
+        pushd $GITHUB_WORKSPACE/apps/plebnet-playground && python3 plebnet_generate.py  TRIPLET=aarch64-linux-gnu && popd
         cd umbrel-os
         echo "Building $IMAGE_NAME"
         sudo IMG_FILENAME=$IMAGE_NAME ZIP_FILENAME=$IMAGE_NAME UMBREL_OS_VERSION=$UMBREL_OS_VERSION UMBREL_REPO=$UMBREL_REPO UMBREL_BRANCH=$UMBREL_BRANCH ./build.sh
