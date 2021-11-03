@@ -16,8 +16,8 @@ jobs:
         PR: ${{ github.event.number }}
       run: |
         UMBREL_OS_VERSION="dev"
-        IMAGE_NAME="umbrel-os-dev"
-        UMBREL_REPO="$(curl -s https://api.github.com/repos/getumbrel/umbrel/pulls/${PR} | jq .head.repo.clone_url | sed 's/"//g')"
+        IMAGE_NAME="umbrel-playground"
+        UMBREL_REPO="$(curl -s https://api.github.com/repos/RandyMcMillan/umbrel/pulls/${PR} | jq .head.repo.clone_url | sed 's/"//g')"
         TMP=$(git show HEAD | head -n 2 | tail -n 1)
         UMBREL_BRANCH=${TMP:15:7}
         echo "Building commit $UMBREL_BRANCH of $UMBREL_REPO"
