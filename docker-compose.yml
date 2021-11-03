@@ -122,7 +122,7 @@ services:
                     JWT_PRIVATE_KEY_FILE: "/jwt-private-key/jwt.key"
                     JWT_EXPIRATION: "3600"
                     DOCKER_COMPOSE_DIRECTORY: $PWD
-                    DEVICE_HOSTS: ${DEVICE_HOSTS:-"http://umbrel.local"}
+                    DEVICE_HOSTS: ${DEVICE_HOSTS:-"http://playground.local"}
                     DEVICE_HOSTNAME: ${DEVICE_HOSTNAME:-""}
                     MIDDLEWARE_API_URL: "http://$MIDDLEWARE_IP"
                     UMBREL_SEED_FILE: "/db/umbrel-seed/seed"
@@ -171,7 +171,7 @@ services:
                     LND_NETWORK: $BITCOIN_NETWORK
                     LND_HOST: "${LND_IP}"
                     JWT_PUBLIC_KEY_FILE: "/jwt-public-key/jwt.pem"
-                    DEVICE_HOSTS: ${DEVICE_HOSTS:-"http://umbrel.local"}
+                    DEVICE_HOSTS: ${DEVICE_HOSTS:-"http://playground.local"}
                 networks:
                     default:
                         ipv4_address: $MIDDLEWARE_IP
