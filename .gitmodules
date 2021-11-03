@@ -1,0 +1,3 @@
+[submodule "apps/plebnet-playground"]
+	path = apps/plebnet-playground
+	url = https://github.com/RandyMcMillan/plebnet-playground-docker.git
