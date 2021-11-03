@@ -3,6 +3,7 @@
 # are automatically reset with every Umbrel update.
 
 log_filters = "INFO"
+verbose = 2
 network = "bitcoin"
 db_dir = "/data/db"
 daemon_rpc_addr = "0.0.0.0:38332"
