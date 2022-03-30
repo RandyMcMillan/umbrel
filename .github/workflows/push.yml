@@ -40,6 +40,7 @@ jobs:
         git clone https://github.com/$GITHUB_ACTOR/umbrel-os-playground.git
     - name: Setting env vars
       run: |
+        IMAGE_NAME=$(basename $PWD)
         cd umbrel-os-playground
         echo $(git rev-parse --abbrev-ref HEAD)
         echo $(git rev-parse --short HEAD)
