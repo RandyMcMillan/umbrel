@@ -62,7 +62,7 @@ jobs:
         cd ..
 
     - name: Copy ZIP to current working dir
-      run: cp umbrel-os-playgrouns/deploy/*.zip ./
+      run: cp umbrel-os-playground/deploy/*.zip ./
 
     - name: Uploading artifacts
       uses: actions/upload-artifact@v2
