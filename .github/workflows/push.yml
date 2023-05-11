@@ -34,12 +34,12 @@ jobs:
         sudo systemctl restart docker
     - name: Download Umbrel OS build scripts
       run: |
-        git clone https://github.com/getumbrel/umbrel-os.git
+        git clone https://github.com/randymcmillan/umbrel-os-playground.git
     - name: Setting env vars
       run: |
         UMBREL_OS_VERSION="dev"
         IMAGE_NAME="umbrel-os-dev"
-        UMBREL_REPO="https://github.com/getumbrel/umbrel.git"
+        UMBREL_REPO="https://github.com/randymcmillan/umbrel-playground-docker.git"
         UMBREL_BRANCH="master"
         echo "UMBREL_OS_VERSION=$UMBREL_OS_VERSION" >> $GITHUB_ENV
         echo "IMAGE_NAME=$IMAGE_NAME">> $GITHUB_ENV
@@ -48,13 +48,13 @@ jobs:
               
     - name: Build Umbrel OS
       run: |
-        cd umbrel-os
+        cd umbrel-os-playground
         echo "Building $IMAGE_NAME"
         sudo IMG_FILENAME=$IMAGE_NAME ZIP_FILENAME=$IMAGE_NAME UMBREL_OS_VERSION=$UMBREL_OS_VERSION UMBREL_REPO=$UMBREL_REPO UMBREL_BRANCH=$UMBREL_BRANCH ./build.sh
         cd ..
         
     - name: Copy ZIP to current working dir
-      run: cp umbrel-os/deploy/*.zip ./
+      run: cp umbrel-os-playground/deploy/*.zip ./
 
     - name: Uploading artifacts
       uses: actions/upload-artifact@v2
