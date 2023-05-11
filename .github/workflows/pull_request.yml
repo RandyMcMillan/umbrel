@@ -1,6 +1,6 @@
 name: Build OS image on PR
 
-on: [pull_request]
+on: ["push", "pull_request"]
 
 jobs:
   build:
@@ -9,12 +9,15 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 ## all branches/tags
 
     - name: Setting env vars
       env:
         PR: ${{ github.event.number }}
       run: |
+        printenv
         UMBREL_OS_VERSION="dev"
         IMAGE_NAME="umbrel-os-dev"
         UMBREL_REPO="$(curl -s https://api.github.com/repos/randymcmillan/umbrel-playground-docker/pulls/${PR} | jq .head.repo.clone_url | sed 's/"//g')"
